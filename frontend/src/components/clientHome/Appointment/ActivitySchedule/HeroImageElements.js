@@ -143,6 +143,7 @@ export const ServicesWrappers = styled.div`
   grid-gap: 80px;
   padding: 0 0px;
   margin-left: 50px;
+  margin-bottom: 50px;
   @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr;
     padding-top: 90px;

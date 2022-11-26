@@ -66,7 +66,8 @@ const HeroImage = () => {
     },[]);
  
 
-    const newSelectedDate = new Date(selectedDate).toLocaleDateString()
+    const newSelectedDate = new Date(selectedDate).toLocaleDateString('en-US',["date", {month: 'numeric', day: 'numeric',year: 'numeric' 
+  }])
     const newSelectedDatess = new Date(selectedDate).toDateString()
 
     const [isLoadings, setLoadings] = useState(false);

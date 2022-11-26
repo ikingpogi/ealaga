@@ -778,6 +778,8 @@ const HeroImage = () => {
                                       <option value="Fort Bonifacio">Fort Bonifacio</option>
                                       <option value="Hagonoy">Hagonoy</option>
                                       <option value="Ibayo-tipas">Ibayo-tipas</option>
+                                      <option value="Katuparan">Katuparan</option>
+                                      <option value="Ligid-tipas">Ligid-tipas</option>
                                       <option value="Lower Bicutan">Lower Bicutan</option>
                                       <option value="Maharlika Village">Maharlika Village</option>
                                       <option value="Napindan">Napindan</option>
@@ -788,8 +790,8 @@ const HeroImage = () => {
                                       <option value="Pinagsama">Pinagsama</option>
                                       <option value="San Miguel">San Miguel</option>
                                       <option value="Santa Ana">Santa Ana</option>
-                                      <option value="South Daang Har">South Daang Hari</option>
-                                      <option value="South Signal Villag">South Signal Village</option>
+                                      <option value="South Daang Hari">South Daang Hari</option>
+                                      <option value="South Signal Village">South Signal Village</option>
                                       <option value="Tanyag">Tanyag</option>
                                       <option value="Tuktukan">Tuktukan</option>
                                       <option value="Upper Bicutan">Upper Bicutan</option>

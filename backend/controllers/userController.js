@@ -1688,7 +1688,7 @@ exports.profileUpdateSubmit = catchAsyncErrors(async(req,res,next) => {
           },
           
         });
-
+console.log(bufferToStream(profile_picture.data));
           const fileId = response.data.id;
       
       await drive.permissions.create({

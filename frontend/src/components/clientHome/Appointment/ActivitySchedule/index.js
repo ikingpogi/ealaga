@@ -68,14 +68,15 @@ const HeroImage = () => {
 
     const newSelectedDate = new Date(selectedDate).toLocaleDateString()
     const newSelectedDatess = new Date(selectedDate).toDateString()
-
+    const newDateConvert = moment(new Date(newSelectedDate)).format('MM/DD/YYYY')
+   
     const [isLoadings, setLoadings] = useState(false);
     
     function submitAppointment(event) {
       event.preventDefault();
-
+      
       const newSelectedDates= {
-        date: newSelectedDate,
+        date: newDateConvert,
         user_id: getUser(),
         category: getSelecServices.service == "recreational" ? "Recreational Activity" : "Dialysis",
         status: "not attended"

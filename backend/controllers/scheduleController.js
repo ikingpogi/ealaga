@@ -176,7 +176,7 @@ exports.add = async (req, res) => {
 }])
 
 	const selectedDate = await Dateslotlist.find({'date' : date});
-	console.log(selectedDate,newDateConvert)
+	console.log(selectedDate,date)
 	// const updateSlot = selectedDate[0].avaliableSlot - 1;
 
 	// const updatedSlot = await Dateslotlist.findByIdAndUpdate(selectedDate[0]._id, {

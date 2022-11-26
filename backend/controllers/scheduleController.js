@@ -172,10 +172,11 @@ exports.add = async (req, res) => {
 	const {date, user_id, category, status} = req.body;
 
 	// console.log(date, user_id, category, status);
-	const newDateConvert = moment(new Date(date)).format('MM/DD/YYYY')
+	const newDateConvert = new Date(date).toLocaleDateString('en-US',["date", {month: 'numeric', day: 'numeric',year: 'numeric' 
+}])
 
 	const selectedDate = await Dateslotlist.find({'date' : date});
-	console.log(selectedDate,date)
+	console.log(selectedDate,newDateConvert)
 	// const updateSlot = selectedDate[0].avaliableSlot - 1;
 
 	// const updatedSlot = await Dateslotlist.findByIdAndUpdate(selectedDate[0]._id, {

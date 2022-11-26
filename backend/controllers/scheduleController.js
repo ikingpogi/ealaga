@@ -172,68 +172,65 @@ exports.add = async (req, res) => {
 	const {date, user_id, category, status} = req.body;
 
 	// console.log(date, user_id, category, status);
-	const newDateConvert = new Date(date).toLocaleDateString('en-US',["date", {month: 'numeric', day: 'numeric',year: 'numeric' 
-}])
 
 	const selectedDate = await Dateslotlist.find({'date' : date});
-	console.log(selectedDate,date)
-	// const updateSlot = selectedDate[0].avaliableSlot - 1;
+	const updateSlot = selectedDate[0].avaliableSlot - 1;
 
-	// const updatedSlot = await Dateslotlist.findByIdAndUpdate(selectedDate[0]._id, {
-    //    'avaliableSlot': updateSlot
-    //             }, 
-    //         {
-    //             new: true,
-    //             runValidators: true,
-    //             useFindAndModify: false
-    //         })
+	const updatedSlot = await Dateslotlist.findByIdAndUpdate(selectedDate[0]._id, {
+       'avaliableSlot': updateSlot
+                }, 
+            {
+                new: true,
+                runValidators: true,
+                useFindAndModify: false
+            })
 
-	// // const tomorrow = new Date(date)
+	// const tomorrow = new Date(date)
 
-	// // var todates= new Date(tomorrow.setDate(tomorrow.getDate()+1)).toISOString() ;
-	// const nowss = moment(new Date(date)).format('YYYY-MM-DD')
+	// var todates= new Date(tomorrow.setDate(tomorrow.getDate()+1)).toISOString() ;
+	const nowss = moment(new Date(date)).format('YYYY-MM-DD')
 
-	// var todate = new Date(nowss).toISOString() 
+	var todate = new Date(nowss).toISOString() 
 
-	// console.log(nowss);
+	console.log(nowss);
 
-	// const schedule = await Schedule.create({
-	// 	user_id: user_id, 
-	// 	date_schedule: todate, 
-	// 	category: category,
-	// 	status: status
-	// })
+	const schedule = await Schedule.create({
+		user_id: user_id, 
+		date_schedule: todate, 
+		category: category,
+		status: status
+	})
 
-	// const latest_data = await Schedule.find({}).sort({_id:-1}).limit(1);
-	// const latest_data_id = latest_data[0]._id;
-	// let id_stringdata = JSON.stringify(latest_data_id)
+	const latest_data = await Schedule.find({}).sort({_id:-1}).limit(1);
+	const latest_data_id = latest_data[0]._id;
+	let id_stringdata = JSON.stringify(latest_data_id)
 
-	// const qrOption = { 
-	// 	margin : 2,
-	// 	width : 175
-	//   };
+	const qrOption = { 
+		margin : 2,
+		width : 175
+	  };
 	
-	//   const bufferImage = await qr.toDataURL(id_stringdata,qrOption);
+	  const bufferImage = await qr.toDataURL(id_stringdata,qrOption);
 
-	//   const result = await cloudinary.v2.uploader.upload(bufferImage, {
-	// 	folder: 'qrcode',
-	// })
+	  const result = await cloudinary.v2.uploader.upload(bufferImage, {
+		folder: 'qrcode',
+	})
 
-	// const schedulesqr = await Schedule.findByIdAndUpdate(latest_data_id,{$push: {qr_code: {
-	// 	public_id: result.public_id,
-	// 	url: result.secure_url
-	// }}}, 
-	// {
-	// 	new: true,
-	// 	validateBeforeSave: false
-	// })
+	const schedulesqr = await Schedule.findByIdAndUpdate(latest_data_id,{$push: {qr_code: {
+		public_id: result.public_id,
+		url: result.secure_url
+	}}}, 
+	{
+		new: true,
+		validateBeforeSave: false
+	})
 
-	// //   console.log(bufferImage);
+	//   console.log(bufferImage);
 
-	// return res.status(200).json({
-	// 	success: true,
-	// 	message:"success"
-	//   })
+	return res.status(200).json({
+		success: true,
+		message:"success"
+	  })
 }
 
 

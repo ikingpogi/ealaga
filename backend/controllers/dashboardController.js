@@ -8,7 +8,7 @@ const Applicant = require('../models/applicant')
 exports.getTotal = async (req, res) => {
 
 
-	const nowss = moment(new Date()).format('YYYY-MM-DD').toLocaleString('en-US', { timeZone: 'Asia/Manila' })
+	const nowss = moment(new Date()).format('YYYY-MM-DD')
 
 	var todate = new Date(nowss).toISOString() 
 

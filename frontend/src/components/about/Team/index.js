@@ -152,28 +152,28 @@ const Services = () => {
             <ServicesIcon src={image2} />
             <ServicesH2>Bermundo, Cris</ServicesH2>
             <ServicesP>
-            President
+            QA engineer
             </ServicesP>
           </ServicesCard>
           <ServicesCard>
             <ServicesIcon src={image3} />
             <ServicesH2>Donadillo, Ricky Boy</ServicesH2>
             <ServicesP>
-            President
+            Full-stack developer
             </ServicesP>
           </ServicesCard>
             <ServicesCard>
             <ServicesIcon src={image4} />
             <ServicesH2>Montano, Nathaniel</ServicesH2>
             <ServicesP>
-            President
+            UI/UX Designer
             </ServicesP>
           </ServicesCard>
             <ServicesCard>
               <ServicesIcon src={image5} />
               <ServicesH2>Solleza, Russel</ServicesH2>
               <ServicesP>
-              President
+              Full-stack developer
               </ServicesP>
             </ServicesCard>   
         </ServicesWrapper>

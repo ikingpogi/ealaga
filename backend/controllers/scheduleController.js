@@ -239,7 +239,7 @@ exports.add = async (req, res) => {
 exports.attendeesList = async (req, res) => {
 
 
-	const nowss = moment(new Date()).format('YYYY-MM-DD')
+	const nowss = moment(new Date()).format('YYYY-MM-DD').toLocaleString('en-US', { timeZone: 'Asia/Manila' })
 
 	var todate = new Date(nowss).toISOString() 
 

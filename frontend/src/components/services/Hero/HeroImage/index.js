@@ -9,6 +9,7 @@ import {
   ServicesWrapper,  ServicesH1
 } from "./HeroImageElements";
 
+import yoga from "../../../../images/yogaelder.jpg";
 
 const HeroImage = () => {
   return (
@@ -30,7 +31,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -47,7 +48,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -64,7 +65,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -81,7 +82,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -107,7 +108,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -124,7 +125,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -141,7 +142,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -158,7 +159,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -184,7 +185,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -201,7 +202,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -218,7 +219,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -235,7 +236,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -261,7 +262,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -278,7 +279,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -295,7 +296,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -312,7 +313,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -338,7 +339,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -355,7 +356,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -372,7 +373,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">
@@ -389,7 +390,7 @@ const HeroImage = () => {
             >
               <img
                 alt="Card image"
-                src="http://www.sunriseseniorliving.com/~/media/blog-images/september-2017/yoga%20and%20older%20adults.jpg"
+                src={yoga}
               />
               <CardBody>
                 <CardTitle tag="h5">

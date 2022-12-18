@@ -11,6 +11,11 @@ import {
   ServicesWrapper, BtnWrap
 } from "./ServicesElements";
 import image1 from "../../../images/profile.jpg";
+import image2 from "../../../images/cristeam.png";
+import image3 from "../../../images/rickyteam.png";
+import image4 from "../../../images/nathteam.png";
+import image5 from "../../../images/russelteam.png";
+
 import { Button } from 'reactstrap';
 import { MDBGallery, MDBGalleryList} from 'mdbreact';
 import Gallery from "react-photo-gallery";
@@ -144,29 +149,29 @@ const Services = () => {
         <ServicesH2>eAlaga’s Development Team</ServicesH2>
         <ServicesWrapper>
           <ServicesCard>
-            <ServicesIcon src={image1} />
-            <ServicesH2>Ms. Jordan</ServicesH2>
+            <ServicesIcon src={image2} />
+            <ServicesH2>Bermundo, Cris</ServicesH2>
             <ServicesP>
             President
             </ServicesP>
           </ServicesCard>
           <ServicesCard>
-            <ServicesIcon src={image1} />
-            <ServicesH2>Ms. Jordan</ServicesH2>
+            <ServicesIcon src={image3} />
+            <ServicesH2>Donadillo, Ricky Boy</ServicesH2>
             <ServicesP>
             President
             </ServicesP>
           </ServicesCard>
             <ServicesCard>
-            <ServicesIcon src={image1} />
-            <ServicesH2>Ms. Jordan</ServicesH2>
+            <ServicesIcon src={image4} />
+            <ServicesH2>Montano, Nathaniel</ServicesH2>
             <ServicesP>
             President
             </ServicesP>
           </ServicesCard>
             <ServicesCard>
-              <ServicesIcon src={image1} />
-              <ServicesH2>Ms. Jordan</ServicesH2>
+              <ServicesIcon src={image5} />
+              <ServicesH2>Solleza, Russel</ServicesH2>
               <ServicesP>
               President
               </ServicesP>

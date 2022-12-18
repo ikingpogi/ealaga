@@ -92,11 +92,11 @@ export const ServicesCard = styled.div`
 `;
 
 export const ServicesIcon = styled.img`
-  min-height: 150px;
-  width: 150px;
+  min-height: 20vh;
+  width: 20vh;
   margin-bottom: 10px;
   margin-top: -50px;
-  border-radius: 10px;
+  border-radius: 200px;
 `;
 export const ServicesH1 = styled.h1`
   font-size: 3.5rem;
@@ -111,9 +111,11 @@ export const ServicesH1 = styled.h1`
 `;
 
 export const ServicesH2 = styled.h2`
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: #000000;
   margin-bottom: 10px;
+  margin-left: -30px;
+  margin-right: -30px;
   font-weight: bold;
 `;
 

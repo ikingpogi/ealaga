@@ -13,6 +13,18 @@ const scheduleSchema = new mongoose.Schema({
             values: [
                 'Recreational Activity',
                 'Dialysis',
+                'Multipurpose Hall',
+            ],
+            message: 'Please select correct category for schedule'
+        }
+    }, 
+    time: {
+        type: String,
+        enum: {
+            values: [
+                'am',
+                'pm',
+                'whole_day'
             ],
             message: 'Please select correct category for schedule'
         }

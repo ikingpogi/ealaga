@@ -28,19 +28,18 @@ const Services = () => {
         <LinkR to="/client/appointment"> 
           <ServicesCard>
             <ServicesIcon src={image2} />
-            <ServicesH2>Book an Appointment</ServicesH2>
+            <ServicesH2>Book a schedule</ServicesH2>
             <ServicesP>
-            Avail Center for elderly's services by booking an appointment
-                                now.
+            You can book a schedule services such as recreational activities, dialysis, and multipurpose hall here.
             </ServicesP>
           </ServicesCard>
           </LinkR>
           <LinkR to="/client/activities">  
             <ServicesCard>
             <ServicesIcon src={image3} />
-            <ServicesH2>My Appointment</ServicesH2>
+            <ServicesH2>Activity</ServicesH2>
             <ServicesP>
-            You can monitor or check your present and future appointments here.
+            You can monitor or check your present and future activities here.
             </ServicesP>
           </ServicesCard>
           </LinkR>
@@ -49,7 +48,7 @@ const Services = () => {
             <ServicesIcon src={image4} />
             <ServicesH2>History</ServicesH2>
             <ServicesP>
-            You can check your past appointments here.
+            You can check your past activities here.
             </ServicesP>
           </ServicesCard>
           </LinkR>

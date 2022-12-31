@@ -75,7 +75,10 @@ const contentStyle = {
             // console.log(AllHealthProblem)
             useEffect(() => {
               fetchAttendees();
-              
+              const interval = setInterval(fetchAttendees, 2000);
+
+            // Clean up the interval when the component unmounts
+            return () => clearInterval(interval);
             },[]);
 
            console.log(getAllAttendees)

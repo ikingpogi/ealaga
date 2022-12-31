@@ -6,13 +6,17 @@ import Stepper from "react-stepper-horizontal";
 import image1 from "../../../../images/logovector.png";
 import image3 from "../../../../images/massage.png";
 import image4 from "../../../../images/dialysis.png";
-
+import image5 from "../../../../images/conference.png";
+import imageam from "../../../../images/am.png";
+import imagepm from "../../../../images/pm.png";
+import imagesunny from "../../../../images/sunny.png";
 import {
   ServicesWrapper,  ServicesH1, ServicesCard,ServicesCard2,ServicesWrappers2,
   ServicesH2,
   ServicesIcon,
   ServicesP,ServicesH3B,ServicesH3,
-  ServicesWrappers, BtnWrap
+  ServicesWrappers, BtnWrap,ServicesWrappers3, ServicesCard3, ServicesWrappers4,
+  ServicesCard4
 } from "./HeroImageElements";
 import { Transition } from 'react-transition-group';
 import Swal from 'sweetalert2'
@@ -31,13 +35,19 @@ const HeroImage = () => {
     textAlign: "center"
   };
   let navigate = useNavigate();
-  const [listDate, fetchDatess] = useState();
+  const [recreational_am, fetchrecreational_am] = useState();
+  const [recreational_pm, fetchrecreational_pm] = useState();
+  const [multipurpose_am, fetchmultipurpose_am] = useState();
+  const [multipurpose_pm, fetchmultipurpose_pm] = useState();
+  const [multipurpose_whole, fetchmultipurpose_whole] = useState();
 
   const [selectedDate, setDuelSlots] = useState();
   const [disableDate, setDisableDate] = useState();
-  const [disableUserSchedDate, setDisableUserSchedDate] = useState();
+  const [disableuserRecreationalSched, setDisableuserRecreationalSched] = useState();
+  const [disableuserMultipurposeSched, setDisableuserMultipurposeSched] = useState();
 
   const [getSelecServices, setSelecServices] = useState({service:""});
+  const [getSelectTime, setSelectTime] = useState({time:""});
 
   function refreshPage() {
     window.location.reload();
@@ -54,15 +64,25 @@ const HeroImage = () => {
           },
         }).then(response => {
           // console.log(response.data.disease);
-          fetchDatess(response.data.dates);
+          fetchrecreational_am(response.data.slot_recreational_am);
+          fetchrecreational_pm(response.data.slot_recreational_pm);
+          fetchmultipurpose_am(response.data.userMultipurposeSchedAm);
+          fetchmultipurpose_pm(response.data.userMultipurposeSchedPm);
+          fetchmultipurpose_whole(response.data.userMultipurposeSchedWhole);
           setDisableDate(response.data.disableDate);
-          setDisableUserSchedDate(response.data.userSched);
+          setDisableuserRecreationalSched(response.data.userRecreationalSched);
+          setDisableuserMultipurposeSched(response.data.userMultipurposeSched);
       }).catch((err) => console.log(err));
     };
     // fetchDate();
     // console.log(disableDate);
     useEffect(() => {
       fetchDate();
+       // Set an interval to fetch messages every 5 seconds
+    const interval = setInterval(fetchDate, 2000);
+
+    // Clean up the interval when the component unmounts
+    return () => clearInterval(interval);
     },[]);
  
 
@@ -78,7 +98,7 @@ const HeroImage = () => {
       const newSelectedDates= {
         date: newSelectedDate,
         user_id: getUser(),
-        category: getSelecServices.service == "recreational" ? "Recreational Activity" : "Dialysis",
+        category: getSelecServices.service,
         status: "not attended"
       }
 
@@ -138,6 +158,8 @@ const HeroImage = () => {
                                fetchDate();
                                navigate('/client/dashboard')
                                setSelecServices({service:""})
+                               setSelectTime({time:""})
+                               
                                 Swal.fire({
                                   title: 'Thank You!',
                                   text: 'You have successfully created your booking.',
@@ -171,20 +193,72 @@ const HeroImage = () => {
  
 
   moment.locale('en');
-  var newDateArray = [];
+  var newdisableuserRecreationalSched= [];
+  var newdisableuserMultipurposeSched= [];
+
+  
 
     // iterate over the dates list from above
-    for(let i = 0; i <= disableUserSchedDate?.length; i++) {
+    for(let i = 0; i <= disableuserRecreationalSched?.length; i++) {
         // pass the date at index i into moment
         // let date = moment(disableUserSchedDate[i]).subtract(1, "days").format('MM-DD-YYYY');
-        let date = disableUserSchedDate[i];
+        let date = disableuserRecreationalSched[i];
         // console.log("date", date);
         // add this new date to the newDateArray
-        newDateArray.push(date)
+        newdisableuserRecreationalSched.push(date)
         
     }
 
-console.log(newDateArray)
+    // iterate over the dates list from above
+    for(let i = 0; i <= disableuserMultipurposeSched?.length; i++) {
+      // pass the date at index i into moment
+      // let date = moment(disableUserSchedDate[i]).subtract(1, "days").format('MM-DD-YYYY');
+        let date = disableuserMultipurposeSched[i];
+        // console.log("date", date);
+        // add this new date to the newDateArray
+        newdisableuserMultipurposeSched.push(date)
+        
+    }
+
+    ////////multipurpose
+
+    var newdisableuserMultipurposeSchedAm= [];
+    var newdisableuserMultipurposeSchedPm= [];
+    var newdisableuserMultipurposeSchedWhole= [];
+
+    for(let i = 0; i <= multipurpose_am?.length; i++) {
+      // pass the date at index i into moment
+      // let date = moment(disableUserSchedDate[i]).subtract(1, "days").format('MM-DD-YYYY');
+        let date = multipurpose_am[i];
+        // console.log("date", date);
+        // add this new date to the newDateArray
+        newdisableuserMultipurposeSchedAm.push(date)
+        
+    }
+
+    for(let i = 0; i <= multipurpose_pm?.length; i++) {
+      // pass the date at index i into moment
+      // let date = moment(disableUserSchedDate[i]).subtract(1, "days").format('MM-DD-YYYY');
+        let date = multipurpose_pm[i];
+        // console.log("date", date);
+        // add this new date to the newDateArray
+        newdisableuserMultipurposeSchedPm.push(date)
+        
+    }
+
+    for(let i = 0; i <= multipurpose_whole?.length; i++) {
+      // pass the date at index i into moment
+      // let date = moment(disableUserSchedDate[i]).subtract(1, "days").format('MM-DD-YYYY');
+        let date = multipurpose_whole[i];
+        // console.log("date", date);
+        // add this new date to the newDateArray
+        newdisableuserMultipurposeSchedWhole.push(date)
+        
+    }
+
+// console.log(newDateArray)
+
+
     // console.log(newDateArray);
   //  const current = new Date();
   // const dateNow = `${current.getFullYear()}/${current.getMonth()+1}/${current.getDate()}`;
@@ -192,8 +266,21 @@ console.log(newDateArray)
   const dateNow = moment(new Date()).format('YYYY-MM-DD')
 
   
+//////////////////////////////////////////// date slot --------------------------
 
- console.log(getSelecServices);
+  // let recreational_am_array = JSON.parse(recreational_am);
+  const disable_recreational_am = recreational_am?.filter(x => x.avaliableSlot === 0).map(item => item.date);
+  const disable_recreational_pm = recreational_pm?.filter(x => x.avaliableSlot === 0).map(item => item.date);
+
+  // const disable_multipurpose_am = multipurpose_am?.filter(x => x.avaliableSlot === 0).map(item => item.date);
+  // const disable_multipurpose_pm = multipurpose_pm?.filter(x => x.avaliableSlot === 0).map(item => item.date);
+
+  console.log(disable_recreational_am);  // Output: "value1"
+
+ 
+
+  console.log(getSelecServices);
+  console.log(getSelectTime);
   return (
     <Container style={{ minHeight: "45vh" }}>
     <div style={styles}>
@@ -204,6 +291,7 @@ console.log(newDateArray)
           {
             title: "Pick a services",
           },
+          { title: "Select a Time" },
           { title: "Set a Schedule and Confirm" },
         ]}
         activeStep={0}
@@ -215,14 +303,89 @@ console.log(newDateArray)
         defaultBorderColor="#EF3A47"
         defaultBorderStyle="#EF3A47"
         completeBarColor="#EF3A47"
-      /> : <Stepper
+      /> 
+      : getSelecServices.service == "recreational" ? <Stepper
       steps={[
         {
           title: "Pick a services",
         },
+        { title: "Select a Time" },
         { title: "Set a Schedule and Confirm" },
       ]}
       activeStep={1}
+      activeColor="#EF3A47"
+      completeColor="#EF3A47"
+      activeTitleColor="#EF3A47"
+      completeTitleColor="#EF3A47"
+      circleFontColor="#FFF"
+      defaultBorderColor="#EF3A47"
+      defaultBorderStyle="#EF3A47"
+      completeBarColor="#EF3A47"
+    /> 
+    : getSelecServices.service == "dialysis" ? <Stepper
+      steps={[
+        {
+          title: "Pick a services",
+        },
+        { title: "Select a Time" },
+        { title: "Set a Schedule and Confirm" },
+      ]}
+      activeStep={1}
+      activeColor="#EF3A47"
+      completeColor="#EF3A47"
+      activeTitleColor="#EF3A47"
+      completeTitleColor="#EF3A47"
+      circleFontColor="#FFF"
+      defaultBorderColor="#EF3A47"
+      defaultBorderStyle="#EF3A47"
+      completeBarColor="#EF3A47"
+    /> 
+    : getSelecServices.service == "multipurpose" ? <Stepper
+      steps={[
+        {
+          title: "Pick a services",
+        },
+        { title: "Select a Time" },
+        { title: "Set a Schedule and Confirm" },
+      ]}
+      activeStep={1}
+      activeColor="#EF3A47"
+      completeColor="#EF3A47"
+      activeTitleColor="#EF3A47"
+      completeTitleColor="#EF3A47"
+      circleFontColor="#FFF"
+      defaultBorderColor="#EF3A47"
+      defaultBorderStyle="#EF3A47"
+      completeBarColor="#EF3A47"
+    /> 
+    : getSelectTime.time == "recreational_am" ? <Stepper
+      steps={[
+        {
+          title: "Pick a services",
+        },
+        { title: "Select a Time" },
+        { title: "Set a Schedule and Confirm" },
+      ]}
+      activeStep={2}
+      activeColor="#EF3A47"
+      completeColor="#EF3A47"
+      activeTitleColor="#EF3A47"
+      completeTitleColor="#EF3A47"
+      circleFontColor="#FFF"
+      defaultBorderColor="#EF3A47"
+      defaultBorderStyle="#EF3A47"
+      completeBarColor="#EF3A47"
+    /> 
+      : 
+      <Stepper
+      steps={[
+        {
+          title: "Pick a services",
+        },
+        { title: "Select a Time" },
+        { title: "Set a Schedule and Confirm" },
+      ]}
+      activeStep={2}
       activeColor="#EF3A47"
       completeColor="#EF3A47"
       activeTitleColor="#EF3A47"
@@ -240,95 +403,346 @@ console.log(newDateArray)
 
       {getSelecServices.service == "recreational" ?  
       <>
+       <ServicesH1>Select a Time
+        <h6 style={{color:"black"}}>Choose Your Time: AM or PM</h6>
+        </ServicesH1>
+        <ServicesWrappers3>
+          <ServicesCard3 onClick={()  => {setSelectTime({time:"recreational_am"});setSelecServices({service:"recreational_am"})}}>
+            <ServicesIcon src={imageam} />
+            <ServicesH2>8:00am-11:59am</ServicesH2>
+          </ServicesCard3>
+          <ServicesCard3 onClick={()  => {setSelectTime({time:"recreational_pm"});setSelecServices({service:"recreational_pm"})}}>
+            <ServicesIcon src={imagepm} />
+            <ServicesH2> 1:00pm-5:00pm</ServicesH2>
+          </ServicesCard3>
+         
+        </ServicesWrappers3>
+        <BtnWrap>
+        <Button outline color="danger" onClick={()  => {setSelecServices({service:""})}}>← Back</Button>
+        </BtnWrap>
+      </>
+      : getSelectTime.time == "recreational_am" ?  
+      <>
      
-     <ServicesH1>Set a schedule and confirm
-       <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
-       </ServicesH1>
-
-       {!listDate ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
-       alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
-       :
-       <ServicesWrappers>
-       <ServicesCard>
-      
-       <Calendar
-      onSelect = {(date) => setDuelSlots(date)}
-      minDate = {dateNow}
-      maxDate = "12/31/2023"
-      selectDateType = 'single'
-      showSelectMonthArrow = { true }
-      showSelectYearArrow = { true }
-      showDateInputField = { false }
-      disableDays = {[ "sun", "sat"]}
-      disableCertainDates = {newDateArray}
-      duelSlotDates = {listDate}
-    />
-    </ServicesCard>
-         <ServicesCard>
-           <ServicesIcon src={image1} />
-           <ServicesH2>DETAILS</ServicesH2>
-           {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3>- 8:00am - 5:00pm</ServicesH3></ServicesH3B>
-           : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} 8:00am - 5:00pm</ServicesH3></ServicesH3B>}
-          <hr></hr>
-           <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
-           <ServicesH3B>TYPE OF SERVICE<ServicesH3>Recreational Activities<ServicesP>Therapy Pool, Massage, Saunas, Yoga, Ballroom, Gym, Board Games, Cinema </ServicesP></ServicesH3> </ServicesH3B>
-            
-           <hr className="line"></hr>
-           <BtnWrap>
-       <Button outline color="danger" onClick={()  => {setSelecServices({service:""})}}>← Back</Button>&nbsp;
-       <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
-       </BtnWrap>
-         </ServicesCard>
-       </ServicesWrappers>
-     }
-
-     </>
-    : getSelecServices.service == "dialysis" ? 
-    <>
-     
-    <ServicesH1>Set a schedule and confirm
-      <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
-      </ServicesH1>
-
-      {!listDate ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
-      alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
-      :
-      <ServicesWrappers>
-      <ServicesCard>
-     
-      <Calendar
-     onSelect = {(date) => setDuelSlots(date)}
-     minDate = {dateNow}
-     maxDate = "12/31/2023"
-     selectDateType = 'single'
-     showSelectMonthArrow = { true }
-     showSelectYearArrow = { true }
-     showDateInputField = { false }
-     disableDays = {[ "sun", "sat"]}
-     disableCertainDates = {newDateArray}
-     duelSlotDates = {listDate}
-   />
-   </ServicesCard>
+      <ServicesH1>Set a schedule and confirm
+        <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
+        </ServicesH1>
+ 
+        {!recreational_am ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
+        alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
+        :
+        <ServicesWrappers>
         <ServicesCard>
-          <ServicesIcon src={image1} />
-          <ServicesH2>DETAILS</ServicesH2>
-          {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3>- 8:00am - 5:00pm</ServicesH3></ServicesH3B>
-          : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} 8:00am - 5:00pm</ServicesH3></ServicesH3B>}
-         <hr></hr>
-          <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
-          <ServicesH3B>TYPE OF SERVICE<ServicesH3>Dialysis<ServicesP>Dialysis</ServicesP></ServicesH3> </ServicesH3B>
-           
-          <hr className="line"></hr>
-          <BtnWrap>
-      <Button outline color="danger" onClick={()  => {setSelecServices({service:""})}}>← Back</Button>&nbsp;
-      <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
-      </BtnWrap>
-        </ServicesCard>
-      </ServicesWrappers>
-    }
+       
+        <Calendar
+       onSelect = {(date) => setDuelSlots(date)}
+       minDate = {dateNow}
+       maxDate = "12/31/2023"
+       selectDateType = 'single'
+       showSelectMonthArrow = { true }
+       showSelectYearArrow = { true }
+       showDateInputField = { false }
+       disableDays = {[ "sun", "sat"]}
+       disableCertainDates = {[...disable_recreational_am, ...newdisableuserRecreationalSched]}
+       duelSlotDates = {recreational_am}
+     />
+     </ServicesCard>
+          <ServicesCard>
+            <ServicesIcon src={image1} />
+            <ServicesH2>DETAILS</ServicesH2>
+            {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3> | Morning 8:00am - 11:59am</ServicesH3></ServicesH3B>
+            : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} | Morning 8:00am - 11:59am</ServicesH3></ServicesH3B>}
+           <hr></hr>
+            <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
+            <ServicesH3B>TYPE OF SERVICE<ServicesH3>Recreational Activities<ServicesP>Therapy Pool, Massage, Saunas, Yoga, Ballroom, Gym, Board Games, Cinema </ServicesP></ServicesH3> </ServicesH3B>
+             
+            <hr className="line"></hr>
+            <BtnWrap>
+        <Button outline color="danger" onClick={()  => {setSelecServices({service:"recreational"});setSelectTime({time:""});setDuelSlots("")}}>← Back</Button>&nbsp;
+        <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
+        </BtnWrap>
+          </ServicesCard>
+        </ServicesWrappers>
+      }
+ 
+      </>
+       : getSelectTime.time == "recreational_pm" ?  
+       <>
+     
+       <ServicesH1>Set a schedule and confirm
+         <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
+         </ServicesH1>
+  
+         {!recreational_am ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
+         alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
+         :
+         <ServicesWrappers>
+         <ServicesCard>
+        
+         <Calendar
+        onSelect = {(date) => setDuelSlots(date)}
+        minDate = {dateNow}
+        maxDate = "12/31/2023"
+        selectDateType = 'single'
+        showSelectMonthArrow = { true }
+        showSelectYearArrow = { true }
+        showDateInputField = { false }
+        disableDays = {[ "sun", "sat"]}
+        disableCertainDates = {[...disable_recreational_pm, ...newdisableuserRecreationalSched]}
+        duelSlotDates = {recreational_pm}
+      />
+      </ServicesCard>
+           <ServicesCard>
+             <ServicesIcon src={image1} />
+             <ServicesH2>DETAILS</ServicesH2>
+             {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3> | Afternoon 1:00pm - 5:00pm</ServicesH3></ServicesH3B>
+             : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} | Afternoon 1:00pm - 5:00pm</ServicesH3></ServicesH3B>}
+            <hr></hr>
+             <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
+             <ServicesH3B>TYPE OF SERVICE<ServicesH3>Recreational Activities<ServicesP>Therapy Pool, Massage, Saunas, Yoga, Ballroom, Gym, Board Games, Cinema </ServicesP></ServicesH3> </ServicesH3B>
+              
+             <hr className="line"></hr>
+             <BtnWrap>
+         <Button outline color="danger" onClick={()  => {setSelecServices({service:"recreational"});setSelectTime({time:""});setDuelSlots("")}}>← Back</Button>&nbsp;
+         <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
+         </BtnWrap>
+           </ServicesCard>
+         </ServicesWrappers>
+       }
+  
+       </>
 
-    </>
-    : 
+   
+    : getSelecServices.service == "dialysis" ? 
+
+    <>
+    <ServicesH1>Select a Time
+     <h6 style={{color:"black"}}>Choose Your Time: AM or PM</h6>
+     </ServicesH1>
+     <ServicesWrappers3>
+       <ServicesCard3 onClick={()  => {setSelectTime({time:"am"})}}>
+         <ServicesIcon src={imageam} />
+         <ServicesH2>8:00am-11:59am</ServicesH2>
+       </ServicesCard3>
+       <ServicesCard3 onClick={()  => {setSelectTime({time:"pm"})}}>
+         <ServicesIcon src={imagepm} />
+         <ServicesH2> 1:00pm-4:00pm</ServicesH2>
+       </ServicesCard3>
+      
+     </ServicesWrappers3>
+     <BtnWrap>
+     <Button outline color="danger" onClick={()  => {setSelecServices({service:""})}}>← Back</Button>
+     </BtnWrap>
+   </>
+   
+  //   <>
+     
+  //   <ServicesH1>Set a schedule and confirm
+  //     <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
+  //     </ServicesH1>
+
+  //     {!listDate ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
+  //     alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
+  //     :
+  //     <ServicesWrappers>
+  //     <ServicesCard>
+     
+  //     <Calendar
+  //    onSelect = {(date) => setDuelSlots(date)}
+  //    minDate = {dateNow}
+  //    maxDate = "12/31/2023"
+  //    selectDateType = 'single'
+  //    showSelectMonthArrow = { true }
+  //    showSelectYearArrow = { true }
+  //    showDateInputField = { false }
+  //    disableDays = {[ "sun", "sat"]}
+  //    disableCertainDates = {newDateArray}
+  //    duelSlotDates = {listDate}
+  //  />
+  //  </ServicesCard>
+  //       <ServicesCard>
+  //         <ServicesIcon src={image1} />
+  //         <ServicesH2>DETAILS</ServicesH2>
+  //         {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3>- 8:00am - 5:00pm</ServicesH3></ServicesH3B>
+  //         : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} 8:00am - 5:00pm</ServicesH3></ServicesH3B>}
+  //        <hr></hr>
+  //         <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
+  //         <ServicesH3B>TYPE OF SERVICE<ServicesH3>Dialysis<ServicesP>Dialysis</ServicesP></ServicesH3> </ServicesH3B>
+           
+  //         <hr className="line"></hr>
+  //         <BtnWrap>
+  //     <Button outline color="danger" onClick={()  => {setSelecServices({service:""})}}>← Back</Button>&nbsp;
+  //     <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
+  //     </BtnWrap>
+  //       </ServicesCard>
+  //     </ServicesWrappers>
+  //   }
+
+  //   </>
+  : getSelecServices.service == "multipurpose" ? 
+
+  <>
+  <ServicesH1>Select a Time
+   <h6 style={{color:"black"}}>Choose Your Time: AM | PM | Whole Day</h6>
+   </ServicesH1>
+   <ServicesWrappers4>
+     <ServicesCard4 onClick={()  => {setSelectTime({time:"multipurpose_am"});setSelecServices({service:"multipurpose_am"})}}>
+       <ServicesIcon src={imageam} />
+       <ServicesH2>8:00am-11:59am</ServicesH2>
+     </ServicesCard4>
+     <ServicesCard4 onClick={()  => {setSelectTime({time:"multipurpose_pm"});setSelecServices({service:"multipurpose_pm"})}}>
+       <ServicesIcon src={imagepm} />
+       <ServicesH2> 1:00pm-5:00pm</ServicesH2>
+     </ServicesCard4>
+     <ServicesCard4 onClick={()  => {setSelectTime({time:"multipurpose_wholeday"});setSelecServices({service:"multipurpose_wholeday"})}}>
+       <ServicesIcon src={imagesunny} />
+       <ServicesH2>Whole Day</ServicesH2>
+     </ServicesCard4>
+    
+   </ServicesWrappers4>
+   <BtnWrap>
+   <Button outline color="danger" onClick={()  => {setSelecServices({service:""})}}>← Back</Button>
+   </BtnWrap>
+ </>
+
+    : getSelectTime.time == "multipurpose_am" ?  
+      <>
+     
+      <ServicesH1>Set a schedule and confirm
+        <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
+        </ServicesH1>
+ 
+        {!recreational_am ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
+        alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
+        :
+        <ServicesWrappers>
+        <ServicesCard>
+       
+        <Calendar
+       onSelect = {(date) => setDuelSlots(date)}
+       minDate = {dateNow}
+       maxDate = "12/31/2023"
+       selectDateType = 'single'
+       showSelectMonthArrow = { true }
+       showSelectYearArrow = { true }
+       showDateInputField = { false }
+       disableDays = {[ "sun", "sat"]}
+       disableCertainDates = {[...newdisableuserMultipurposeSched, ...newdisableuserMultipurposeSchedAm, ...newdisableuserMultipurposeSchedWhole]}
+     />
+     </ServicesCard>
+          <ServicesCard>
+            <ServicesIcon src={image1} />
+            <ServicesH2>DETAILS</ServicesH2>
+            {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3> | Morning 8:00am - 11:59am</ServicesH3></ServicesH3B>
+            : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} | Morning 8:00am - 11:59am</ServicesH3></ServicesH3B>}
+           <hr></hr>
+            <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
+            <ServicesH3B>TYPE OF SERVICE<ServicesH3>Multipurpose Hall<ServicesP> A flexible space that can be used for a variety of events and activities, such as meetings, conferences, and social gatherings.</ServicesP></ServicesH3> </ServicesH3B>
+             
+            <hr className="line"></hr>
+            <BtnWrap>
+        <Button outline color="danger" onClick={()  => {setSelecServices({service:"multipurpose"});setSelectTime({time:""});setDuelSlots("")}}>← Back</Button>&nbsp;
+        <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
+        </BtnWrap>
+          </ServicesCard>
+        </ServicesWrappers>
+      }
+ 
+      </>
+      :
+
+      getSelectTime.time == "multipurpose_pm" ?  
+      <>
+     
+      <ServicesH1>Set a schedule and confirm
+        <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
+        </ServicesH1>
+ 
+        {!recreational_am ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
+        alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
+        :
+        <ServicesWrappers>
+        <ServicesCard>
+       
+        <Calendar
+       onSelect = {(date) => setDuelSlots(date)}
+       minDate = {dateNow}
+       maxDate = "12/31/2023"
+       selectDateType = 'single'
+       showSelectMonthArrow = { true }
+       showSelectYearArrow = { true }
+       showDateInputField = { false }
+       disableDays = {[ "sun", "sat"]}
+       disableCertainDates = {[...newdisableuserMultipurposeSched, ...newdisableuserMultipurposeSchedPm, ...newdisableuserMultipurposeSchedWhole]}
+     />
+     </ServicesCard>
+          <ServicesCard>
+            <ServicesIcon src={image1} />
+            <ServicesH2>DETAILS</ServicesH2>
+            {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3> | Afternoon 1:00pm - 5:00pm</ServicesH3></ServicesH3B>
+            : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} | Afternoon 1:00pm - 5:00pm</ServicesH3></ServicesH3B>}
+           <hr></hr>
+            <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
+            <ServicesH3B>TYPE OF SERVICE<ServicesH3>Multipurpose Hall<ServicesP> A flexible space that can be used for a variety of events and activities, such as meetings, conferences, and social gatherings.</ServicesP></ServicesH3> </ServicesH3B>
+             
+            <hr className="line"></hr>
+            <BtnWrap>
+        <Button outline color="danger" onClick={()  => {setSelecServices({service:"multipurpose"});setSelectTime({time:""});setDuelSlots("")}}>← Back</Button>&nbsp;
+        <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
+        </BtnWrap>
+          </ServicesCard>
+        </ServicesWrappers>
+      }
+ 
+      </>
+      :
+
+      getSelectTime.time == "multipurpose_wholeday" ?  
+      <>
+     
+      <ServicesH1>Set a schedule and confirm
+        <h6 style={{color:"black"}}>Set the date of your desired day of activities and confirm</h6>
+        </ServicesH1>
+ 
+        {!recreational_am ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
+        alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div>
+        :
+        <ServicesWrappers>
+        <ServicesCard>
+       
+        <Calendar
+       onSelect = {(date) => setDuelSlots(date)}
+       minDate = {dateNow}
+       maxDate = "12/31/2023"
+       selectDateType = 'single'
+       showSelectMonthArrow = { true }
+       showSelectYearArrow = { true }
+       showDateInputField = { false }
+       disableDays = {[ "sun", "sat"]}
+       disableCertainDates = {[...newdisableuserMultipurposeSched, ...newdisableuserMultipurposeSchedPm, ...newdisableuserMultipurposeSchedAm]}
+     />
+     </ServicesCard>
+          <ServicesCard>
+            <ServicesIcon src={image1} />
+            <ServicesH2>DETAILS</ServicesH2>
+            {newSelectedDate === "Invalid Date" ?  <ServicesH3B >Schedule<ServicesH3> | WholeDay 8:00am - 5:00pm</ServicesH3></ServicesH3B>
+            : <ServicesH3B>Schedule<ServicesH3>{newSelectedDatess} | WholeDay 8:00am - 5:00pm</ServicesH3></ServicesH3B>}
+           <hr></hr>
+            <ServicesH3B>PLACE:<ServicesH3>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH3></ServicesH3B><hr></hr>
+            <ServicesH3B>TYPE OF SERVICE<ServicesH3>Multipurpose Hall<ServicesP> A flexible space that can be used for a variety of events and activities, such as meetings, conferences, and social gatherings.</ServicesP></ServicesH3> </ServicesH3B>
+             
+            <hr className="line"></hr>
+            <BtnWrap>
+        <Button outline color="danger" onClick={()  => {setSelecServices({service:"multipurpose"});setSelectTime({time:""});setDuelSlots("")}}>← Back</Button>&nbsp;
+        <Button outline color="danger" onClick={submitAppointment}>Confirm →</Button>
+        </BtnWrap>
+          </ServicesCard>
+        </ServicesWrappers>
+      }
+ 
+      </>
+      :
+
     <>
     <ServicesH1>Pick a Services
         <h6 style={{color:"black"}}>Pick a services you want to avail</h6>
@@ -338,14 +752,21 @@ console.log(newDateArray)
             <ServicesIcon src={image3} />
             <ServicesH2>Recreational Activities</ServicesH2>
             <ServicesP>
-           ipsum sumpi oewqo dwqdwqipsum sumpi oewqo dwqdwqipsum sumpi oewqo dwqdwq
+            A variety of services including Therapy Pool, Massage, Saunas, Yoga, Ballroom, Gym, Board Games, and Cinema for leisure and relaxation.
             </ServicesP>
           </ServicesCard2>
           <ServicesCard2 onClick={()  => {setSelecServices({service:"dialysis"})}}>
             <ServicesIcon src={image4} />
             <ServicesH2>Dialysis</ServicesH2>
             <ServicesP>
-            ipsum sumpi oewqo dwqdwqipsum sumpi oewqo dwqdwqipsum sumpi oewqo dwqdwq
+            A service allowing users to book a schedule for dialysis treatment 4 times per month.
+            </ServicesP>
+          </ServicesCard2>
+          <ServicesCard2 onClick={()  => {setSelecServices({service:"multipurpose"})}}>
+            <ServicesIcon src={image5} />
+            <ServicesH2>Multi-purpose Hall</ServicesH2>
+            <ServicesP>
+            A flexible space that can be used for a variety of events and activities, such as meetings, conferences, and social gatherings.
             </ServicesP>
           </ServicesCard2>
         </ServicesWrappers2>
@@ -364,6 +785,13 @@ console.log(newDateArray)
     width: 500px;
     
     }
+    .cld_container table {
+      height: 47vh;
+  }
+  .cld_container td {
+    font-size: 16px;
+    font-weight: bold;
+}
     .line {
       border-top: 1px solid red;
       width: 500px;
@@ -373,6 +801,12 @@ console.log(newDateArray)
           width: 40%;
           min-width: 34rem;
       }
+
+      .cld_noslotWidth {
+        width: 40%;
+        min-width: 34rem;
+    }
+
       .cld_greenHighlight {
         background-color: #EF3A47;
     }
@@ -383,7 +817,7 @@ console.log(newDateArray)
   }
 
     .cld_highlightNumCircle {
-      height:25px;
+      height: 27px;
       border-radius: 200px;
       color: #ffffff;
       margin: 0 5px;

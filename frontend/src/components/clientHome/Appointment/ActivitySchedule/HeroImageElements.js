@@ -33,16 +33,16 @@ export const LinkR = styled(Link)`
 
 
 export const ServicesWrappers2 = styled.div`
-  max-width: 750px;
+  max-width: 120vh;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  grid-gap: 80px;
+  grid-gap: 50px;
   padding: 0 0px;
 
   @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
     padding: 0 0px;
     width: 80%;
   }
@@ -54,6 +54,122 @@ export const ServicesWrappers2 = styled.div`
   }
 `;
 
+export const ServicesWrappers3 = styled.div`
+        max-width: 75vh;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        grid-gap: 50px;
+        padding: 0 0px;
+
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr ;
+        padding: 0 0px;
+        width: 80%;
+      }
+
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        padding: 0 0px;
+        width: 80%;
+      }
+`;
+
+export const ServicesWrappers4 = styled.div`
+        max-width: 120vh;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        grid-gap: 50px;
+        padding: 0 0px;
+
+      @media screen and (max-width: 1024px) {
+        grid-template-columns: 1fr 1fr ;
+        padding: 0 0px;
+        width: 80%;
+      }
+
+      @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr;
+        padding: 0 0px;
+        width: 80%;
+      }
+`;
+
+export const ServicesCard3 = styled.div`
+  background: linear-gradient(to bottom, rgba(255,186,186,50%), rgba(255,186,186,0%));
+  display: flex;
+  border: 1px solid #FFFFFF;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 50px;
+  max-height: 250px;
+  min-height: 250px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(100, 100, 100, 0.6);
+  transition: all 0.3s ease-in-out ;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.4 ease-in-out;
+    box-shadow: 0 5px 10px rgba(255, 0, 0, 0.6);
+    cursor: pointer;
+    h2 {
+      transition: all 0.4s ease-in-out ;
+      color: #EF3A47;
+    }
+
+  }
+  @media screen and (max-width: 768px) {
+    height: 300px;
+    padding: 20px;
+  }
+  @media screen and (max-width: 460px) {
+    min-height: 300px;
+    padding: 10px;
+  }
+`;
+
+export const ServicesCard4 = styled.div`
+  background: linear-gradient(to bottom, rgba(255,186,186,50%), rgba(255,186,186,0%));
+  display: flex;
+  border: 1px solid #FFFFFF;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 50px;
+  max-height: 250px;
+  min-height: 250px;
+  max-width: 330px;
+  min-width: 330px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(100, 100, 100, 0.6);
+  transition: all 0.3s ease-in-out ;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.4 ease-in-out;
+    box-shadow: 0 5px 10px rgba(255, 0, 0, 0.6);
+    cursor: pointer;
+    h2 {
+      transition: all 0.4s ease-in-out ;
+      color: #EF3A47;
+    }
+
+  }
+  @media screen and (max-width: 768px) {
+    height: 300px;
+    padding: 20px;
+  }
+  @media screen and (max-width: 460px) {
+    min-height: 300px;
+    padding: 10px;
+  }
+`;
+
 export const ServicesCard2 = styled.div`
   background: linear-gradient(to bottom, rgba(255,186,186,50%), rgba(255,186,186,0%));
   display: flex;
@@ -62,8 +178,10 @@ export const ServicesCard2 = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 50px;
-  max-height: 300px;
-  min-height: 300px;
+  max-height: 330px;
+  min-height: 330px;
+  max-width: 330px;
+  min-width: 330px;
   padding: 30px;
   box-shadow: 0 5px 10px rgba(100, 100, 100, 0.6);
   transition: all 0.3s ease-in-out ;

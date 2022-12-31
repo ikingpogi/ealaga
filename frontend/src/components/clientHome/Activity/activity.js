@@ -8,6 +8,7 @@ import html2canvas from 'html2canvas';
 import downloadjs from 'downloadjs';
 import image1 from "../../../images/gymnastics.png";
 import image2 from "../../../images/dialysis2.png";
+import image3 from "../../../images/conference.png";
 import { Carousel, Card, Modal } from 'react-bootstrap';
 import { Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -85,6 +86,13 @@ const HeroImage = () => {
         
         useEffect(() => {
           fetchSchedules();
+
+             // Set an interval to fetch messages every 5 seconds
+        const interval = setInterval(fetchSchedules, 2000);
+
+        // Clean up the interval when the component unmounts
+        return () => clearInterval(interval);
+
         },[]);
       
         // console.log(fetchSchedule);
@@ -163,6 +171,7 @@ const HeroImage = () => {
                 }).then(response => {
 
                                    navigate('/client/activities')
+                                   fetchSchedules();
                                    handleClose();
                                     Swal.fire({
                                       title: 'Success!',
@@ -277,7 +286,8 @@ const HeroImage = () => {
         filteredfetchSchedule?.map(schedules => { 
             // console.log(schedules);
             return <ServicesCard>
-              {schedules.category == "Recreational Activity" ? <ServicesIcon src={image1} /> :
+              {schedules.category == "Recreational Activity" ? <ServicesIcon src={image1} /> : 
+              schedules.category == "Multipurpose Hall" ? <ServicesIcon src={image3} /> :
               <ServicesIcon src={image2} />
 
               }
@@ -300,10 +310,23 @@ const HeroImage = () => {
               <div className="colll">
               <ServicesH21><i class="far fa-clock"></i>&nbsp; :
               </ServicesH21>
-             <ServicesP>
-             &nbsp;&nbsp; 
-             8am to 5pm
-              </ServicesP>
+              {schedules.time == "am" ?   
+              <ServicesP>
+                &nbsp;&nbsp; 
+                AM 8:00am to 11:59am
+                  </ServicesP> :
+                  schedules.time == "pm" ?   
+                  <ServicesP>
+                  &nbsp;&nbsp; 
+                  PM 1:00pm to 5:00pm
+               </ServicesP> :
+                  <ServicesP>
+                  &nbsp;&nbsp; 
+                  8:00am to 5:00pm
+               </ServicesP>
+
+              }
+           
               </div>
 
                 <div className="colll">
@@ -361,6 +384,7 @@ const HeroImage = () => {
                 <Col>
                 <ServicesP5>Service Type</ServicesP5>
                  {schedData.category == "Recreational Activity" ?  <ServicesH25>Recreational Activity</ServicesH25> :
+                 schedData.category == "Multipurpose Hall" ?  <ServicesH25>Multi-purpose Hall</ServicesH25> :
              <ServicesH25>Dialysis</ServicesH25>
 
               }
@@ -370,7 +394,12 @@ const HeroImage = () => {
                   {/* {moment(schedData.date_schedule).subtract(1, "days").format("ddd MMMM DD YYYY")} */}
                   {moment(schedData.date_schedule).format("ddd MMMM DD YYYY")}
                 </ServicesH25>
-                <ServicesP>8:00am - 5:00pm</ServicesP>
+                {schedData.time == "am" ? 
+                <ServicesP>Morning 8:00am - 11:59am</ServicesP>:
+                schedData.time == "pm" ? 
+                <ServicesP>Afternoon 1:00pm - 5:00pm</ServicesP>:
+                <ServicesP>WholeDay 8:00am - 5:00pm</ServicesP>
+              }
                 <ServicesP5>Location</ServicesP5>
                 <ServicesH25>13, 1639 Manzanitas St, Taguig, Metro Manila</ServicesH25>
                 <ServicesIcon3 src="https://res.cloudinary.com/du7wzlg44/image/upload/v1658764147/opening_2_svmbic.png" />

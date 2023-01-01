@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ServicesContainer = styled.div`
-  height: 700px;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,6 @@ export const ServicesContainer = styled.div`
   alignitems: top;
   @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
-    height: 1700px;
   }
 
   @media screen and (max-width: 768px) {
@@ -33,7 +32,7 @@ export const LinkR = styled(Link)`
 `;
 
 export const ServicesWrapper = styled.div`
-  max-width: 1500px;
+  max-width: 80%;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -41,7 +40,7 @@ export const ServicesWrapper = styled.div`
   grid-gap: 30px;
   padding: 0 0px;
 
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1480px) {
     grid-template-columns: 1fr 1fr;
     padding: 0 0px;
   }
@@ -61,8 +60,7 @@ export const ServicesCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 10px;
-  max-height: 420px;
-  min-height: 420px;
+  max-height: 100%;
   padding: 30px;
   box-shadow: 0 5px 10px rgba(255, 0, 0, 0.6);
   transition: all 0.2s ease-in-out;
@@ -71,6 +69,10 @@ export const ServicesCard = styled.div`
     transform: scale(1.02);
     transition: all 0.2 ease-in-out;
     cursor: pointer;
+  }
+  @media screen and (max-width: 1480px) {
+    max-height: 90%;
+    max-width: 80%;
   }
   @media screen and (max-width: 768px) {
     height: 380px;
@@ -92,7 +94,6 @@ export const ServicesH1 = styled.h1`
   font-size: 3.5rem;
   color: #EF3A47;
   font-weight: bold;
-  margin-bottom: 0px;
 
   @media screen and (max-width: 480px) {
     font-size: 2.5rem;

@@ -81,7 +81,7 @@ const HeroImage = () => {
           >
             <img
               src={Play}
-              style={{ width: "70%", height: "auto", alignContent: "left", marginTop: "-100px", marginLeft:"-40px"
+              style={{ width: "70%", height: "auto", alignContent: "left", marginTop: "-30%", marginLeft:"-30%"
               ,['@media screen and (max-width: 768px)']: { 
                 width: "100%", height: "auto", alignContent: "left", marginTop: "-100px", marginLeft:"-100px"
               }

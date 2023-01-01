@@ -4,7 +4,7 @@ export const AcheivementsContainerWave = styled.div`
   background: #f1f4f5;
 `;
 export const AcheivementsContainer = styled.div`
-  height: 400px;
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,15 +14,15 @@ export const AcheivementsContainer = styled.div`
   margin-bottom: -3px;
   font-size: 0;
   @media screen and (max-width: 1024px) {
-    height: 800px;
+    height: 40vh;
   }
 
   @media screen and (max-width: 768px) {
-    height: 1000px;
+    height: 40vh;
   }
 
   @media screen and (max-width: 480px) {
-    height: 900px;
+    height: 40vh;
   }
 `;
 

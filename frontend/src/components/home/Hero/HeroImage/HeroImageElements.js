@@ -39,15 +39,22 @@ export const AppWrapper = styled.div`
 export const App = styled.img`
   max-width: auto;
   height: 120%;
-  @media screen and (max-width: 768px) {
-    max-width: 80%;
+
+  @media screen and (max-width: 1024px) {
+    max-width: 60%;
     height: auto;
     margin-top: 0;
   }
-  @media screen and (max-width: 1024px) {
-    max-width: 100%;
+  @media screen and (max-width: 768px) {
+    max-width: 50%;
     height: auto;
-    margin-top: 0;
+    margin-top: -10%;
+  }
+
+  @media only screen and (max-width: 480px) {
+    max-width: 50%;
+    height: auto;
+    margin-top: -10%;
   }
 `;
 
@@ -95,8 +102,14 @@ export const AppTitle = styled.div`
       margin: 0;
     }
     @media screen and (max-width: 1024px) {
-      font-size: 2.2rem;
-      line-height: 48px;
+      font-size: 1.7rem;
+      line-height: 36px;
+    }
+    @media only screen and (max-width: 480px) {
+      font-size: 1.7rem;
+      line-height: 36px;
+      text-align: center;
+      margin: 0;
     }
   }
 `;
@@ -107,9 +120,19 @@ export const AppPara = styled.p`
   margin-left: 40px;
   ${"" /* text-align: center; */}
   line-height: 54px;
+  @media screen and (max-width: 1024px) {
+    font-size: 0.9rem;
+    line-height: 36px;
+  }
   @media screen and (max-width: 768px) {
     font-size: 0.9rem;
     line-height: 36px;
+  }
+  @media only screen and (max-width: 480px) {
+    font-size: 1.2rem;
+    line-height: 36px;
+    text-align: center;
+    margin: 5%;
   }
 `;
 
@@ -122,5 +145,9 @@ export const AppStore = styled.div`
     margin-right: auto;
     align-items: center;
     align-self: center;
+  }
+  @media only screen and (max-width: 480px) {
+    width: 50%;
+    vertical-align: left;
   }
 `;

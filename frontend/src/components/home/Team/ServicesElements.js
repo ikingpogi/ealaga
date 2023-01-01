@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const ServicesContainer = styled.div`
-  height: 700px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +13,7 @@ export const ServicesContainer = styled.div`
   alignitems: top;
   @media screen and (max-width: 1024px) {
     grid-template-columns: 1fr 1fr;
-    height: 1700px;
+    height: 100%;
   }
 
   @media screen and (max-width: 768px) {
@@ -42,7 +42,7 @@ export const BtnWrap = styled.div`
 `;
 
 export const ServicesWrapper = styled.div`
-  max-width: 1750px;
+  max-width: 100%;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -50,15 +50,20 @@ export const ServicesWrapper = styled.div`
   grid-gap: 30px;
   padding: 0 0px;
 
-  @media screen and (max-width: 1024px) {
+  @media only screen and (max-width: 1480px) {
     grid-template-columns: 1fr 1fr;
     padding: 0 0px;
-  }
+}
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
     padding: 0 0px;
     width: 80%;
+  }
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding: 0 0px;
+    width: 100%;
   }
 `;
 
@@ -70,8 +75,7 @@ export const ServicesCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 360px;
-  max-height: 360px;
-  min-height: 360px;
+  max-height: 90%;
   padding: 90px;
   box-shadow: 0 5px 10px rgba(255, 0, 0, 0.6);
   transition: all 0.2s ease-in-out;
@@ -85,7 +89,7 @@ export const ServicesCard = styled.div`
     height: 360px;
     padding: 100px;
   }
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 480px) {
     min-height: 360px;
     padding: 100px;
   }

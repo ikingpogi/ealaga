@@ -47,7 +47,11 @@ const useStyles = makeStyles((theme) => ({
     },
     ['@media screen and (max-width: 768px)']: { 
       height: 200,
-      minWidth: 470,
+      minWidth: 450,
+    },
+    ['@media screen and (max-width: 480px)']: { 
+      height: 200,
+      minWidth: 350,
     },
   }
 }));

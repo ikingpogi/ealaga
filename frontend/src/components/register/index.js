@@ -1,6 +1,9 @@
 import React from "react";
 import Img from "../../images/register.png";
 import {TextField, InputLabel} from "@material-ui/core/";
+import { InputAdornment } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { IconButton } from '@material-ui/core';
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
@@ -92,6 +95,17 @@ const HeroImage = () => {
                         });   
     }
 
+////////////////////////// show and hide password
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleClickShowPassword = () => {
+      setShowPassword(!showPassword);
+    };
+
+    const handleMouseDownPassword = (event) => {
+      event.preventDefault();
+    };
 
 
   return (
@@ -124,10 +138,36 @@ const HeroImage = () => {
           <TextField fullWidth color="secondary" id="user_name" name="user_name" onChange={onChange} label="Username" />
           <InputLabel style={{color: "red", "font-size": "0.8rem"}}>{error.user_name}</InputLabel>
          
-          <TextField type="password" fullWidth color="secondary" name="password" onChange={onChange} id="password" label="Password" />
+          <TextField type={showPassword ? 'text' : 'password'} fullWidth InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            color="secondary" name="password" onChange={onChange} id="password" label="Password" />
           <InputLabel style={{color: "red", "font-size": "0.8rem"}}>{error.password}</InputLabel> 
 
-          <TextField type="password" fullWidth color="secondary" name="confirmPassword" onChange={onChange} id="password" label="Confirm Password" />
+          <TextField type={showPassword ? 'text' : 'password'} fullWidth InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
+            color="secondary" name="confirmPassword" onChange={onChange} id="password" label="Confirm Password" />
           <InputLabel style={{color: "red", "font-size": "0.8rem"}}>{error.confirmPassword}</InputLabel> 
 
           

@@ -1,6 +1,9 @@
 import React from "react";
 import Img from "../../images/login.png";
 import {TextField, InputLabel} from "@material-ui/core/";
+import { InputAdornment } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { IconButton } from '@material-ui/core';
 import Container from "react-bootstrap/Container";
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
@@ -138,6 +141,19 @@ const HeroImage = () => {
 }
 
 
+////////////////////////// show and hide password
+
+    const [showPassword, setShowPassword] = useState(false);
+
+      const handleClickShowPassword = () => {
+        setShowPassword(!showPassword);
+      };
+
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
+
   return (
     <Container style={{ minHeight: "50vh" }}>
     <HeroImageContainer>
@@ -152,11 +168,29 @@ const HeroImage = () => {
           {/* <h2>dwadwadwadwadw</h2> */}
         </AppTitle>
         <AppPara>
+        <form onKeyPress={(event) => {
+          if (event.key === 'Enter') {
+            submitLogin();
+          }
+        }}>
         
-          <TextField fullWidth color="secondary" name="email" onChange={onChange} id="fullName" label="Email / Username" />
+          <TextField fullWidth style={{ width: '40vh' }} color="secondary" name="email" onChange={onChange} id="fullName" label="Email / Username" />
           <InputLabel style={{color: "red", "font-size": "0.8rem"}}>{error.email}</InputLabel> 
          
-          <TextField type="password" color="secondary" name="password" onChange={onChange} fullWidth id="fullName" label="Password" />
+          <TextField  style={{ width: '40vh' }} type={showPassword ? 'text' : 'password'}  InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }} color="secondary" name="password" onChange={onChange} fullWidth id="fullName" label="Password" />
+            
           <InputLabel style={{color: "red", "font-size": "0.8rem"}}>{error.password}</InputLabel> 
           <InputLabel><Link to="/password/forgot" style={{color: "red", "font-size": "1rem","text-decoration": "none"}}>Forgot password?</Link> </InputLabel>   
           <div style={{color: "black", "font-size": "1rem", "padding-top": "8px"}}>
@@ -166,6 +200,7 @@ const HeroImage = () => {
             Don't have an account?
             <Link to="/register" style={{color: "red", "font-size": "1rem", "text-decoration": "none"}}>&nbsp;Signup here!</Link>
             </InputLabel>     
+            </form>
         </AppPara>
        
       </TextWrapper>

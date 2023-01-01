@@ -8,6 +8,7 @@ import html2canvas from 'html2canvas';
 import downloadjs from 'downloadjs';
 import image1 from "../../../images/gymnastics.png";
 import image2 from "../../../images/dialysis2.png";
+import image3 from "../../../images/conference.png";
 import { Carousel, Card, Modal } from 'react-bootstrap';
 import { Button } from 'reactstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -200,7 +201,8 @@ const HeroImage = () => {
         filteredfetchSchedule?.map(schedules => { 
             // console.log(schedules);
             return <ServicesCard>
-              {schedules.category == "Recreational Activity" ? <ServicesIcon src={image1} /> :
+              {schedules.category == "Recreational Activity" ? <ServicesIcon src={image1} /> : 
+              schedules.category == "Multipurpose Hall" ? <ServicesIcon src={image3} /> :
               <ServicesIcon src={image2} />
 
               }
@@ -223,10 +225,22 @@ const HeroImage = () => {
               <div className="colll">
               <ServicesH21><i class="far fa-clock"></i>&nbsp; :
               </ServicesH21>
-             <ServicesP>
-             &nbsp;&nbsp; 
-             8am to 5pm
-              </ServicesP>
+              {schedules.time == "am" ?   
+              <ServicesP>
+                &nbsp;&nbsp; 
+                AM 8:00am to 11:59am
+                  </ServicesP> :
+                  schedules.time == "pm" ?   
+                  <ServicesP>
+                  &nbsp;&nbsp; 
+                  PM 1:00pm to 5:00pm
+               </ServicesP> :
+                  <ServicesP>
+                  &nbsp;&nbsp; 
+                  8:00am to 5:00pm
+               </ServicesP>
+
+              }
               </div>
   
                 <div className="colll">

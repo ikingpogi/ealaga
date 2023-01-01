@@ -31,29 +31,38 @@ const drive = google.drive({
 
 exports.signin = async (req, res) => {
   const { email, password } = req.body;
-  const emailValid = emailvalidator.validate(email)
+  // const emailValid = emailvalidator.validate(email)
 
   // console.log(emailValid);
 
   if (!email) {
     return res.status(400).send({ 
-      'email':'Please enter email'
+      'email':'Please enter email / username'
   });
   }
 
-  if (!emailValid) {
-    return res.status(400).send({ 
-      'email':'Please enter valid email'
-  });
-  }
+  // if (!emailValid) {
+  //   return res.status(400).send({ 
+  //     'email':'Please enter valid email'
+  // });
+  // }
     
 
   try{
       // Step 1 - Verify a user with the email exists
-      const user = await User.findOne({ email }).select('+password')
+      let user;
+      
+      if (email.includes('@')) {
+        user = await User.findOne({ email: email }).select('+password');
+      } else {
+        user = await User.findOne({ user_name: email }).select('+password');
+      }
+      
+      // const user = await User.findOne({ email }).select('+password')
+
       if (!user) {
         return res.status(400).send({ 
-          'email': "Email does not exist" 
+          'email': "User not found" 
       });
 
       }
@@ -69,7 +78,7 @@ exports.signin = async (req, res) => {
       
       if (!isPasswordMatched) {
         return res.status(400).send({ 
-          'password':'Wrong password'
+          'password':'Incorrect password'
         });
       }
 

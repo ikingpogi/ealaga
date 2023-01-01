@@ -153,7 +153,7 @@ const HeroImage = () => {
         </AppTitle>
         <AppPara>
         
-          <TextField fullWidth color="secondary" name="email" onChange={onChange} id="fullName" label="Email" />
+          <TextField fullWidth color="secondary" name="email" onChange={onChange} id="fullName" label="Email / Username" />
           <InputLabel style={{color: "red", "font-size": "0.8rem"}}>{error.email}</InputLabel> 
          
           <TextField type="password" color="secondary" name="password" onChange={onChange} fullWidth id="fullName" label="Password" />

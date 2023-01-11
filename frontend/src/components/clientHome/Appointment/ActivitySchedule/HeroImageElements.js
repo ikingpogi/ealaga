@@ -33,24 +33,37 @@ export const LinkR = styled(Link)`
 
 
 export const ServicesWrappers2 = styled.div`
-  max-width: 120vh;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  grid-gap: 50px;
-  padding: 0 0px;
-
-  @media screen and (max-width: 1024px) {
-    grid-template-columns: 1fr 1fr ;
+    max-width: 75%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    grid-gap: 6%;
     padding: 0 0px;
-    width: 80%;
-  }
+    margin-bottom: 50px;
+    @media screen and (max-width: 1340px) {
+      grid-template-columns: 1fr 1fr;
+      max-width: 600px;
+      grid-gap: 12%;
+      align-items: center;
+    }
 
-  @media screen and (max-width: 768px) {
-    grid-template-columns: 1fr;
-    padding: 0 0px;
-    width: 80%;
+    @media screen and (max-width: 780px) {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+      grid-gap: 30px;
+      align-items: center;
+      padding-top: 50px;
+    }
+
+    @media screen and (max-width: 480px) {
+      grid-template-columns: 1fr;
+      max-width: 600px;
+      grid-gap: 30px;
+      align-items: center;
+      padding-top: 50px;
+    }
+    
   }
 `;
 
@@ -63,16 +76,24 @@ export const ServicesWrappers3 = styled.div`
         grid-gap: 50px;
         padding: 0 0px;
 
-      @media screen and (max-width: 1024px) {
+      @media screen and (max-width: 1340px) {
         grid-template-columns: 1fr 1fr ;
         padding: 0 0px;
         width: 80%;
       }
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 780px) {
         grid-template-columns: 1fr;
         padding: 0 0px;
         width: 80%;
+        padding-top: 50px;
+      }
+
+      @media screen and (max-width: 480px) {
+        grid-template-columns: 1fr;
+        padding: 0 0px;
+        width: 80%;
+        padding-top: 50px;
       }
 `;
 
@@ -127,9 +148,13 @@ export const ServicesCard3 = styled.div`
     height: 300px;
     padding: 20px;
   }
-  @media screen and (max-width: 460px) {
-    min-height: 300px;
+  @media screen and (max-width: 480px) {
+    max-height: 150px;
+  min-height: 150px;
+  max-width: 275px;
+  min-width: 275px;
     padding: 10px;
+    margin-left: 30px;
   }
 `;
 
@@ -178,10 +203,10 @@ export const ServicesCard2 = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 50px;
-  max-height: 330px;
-  min-height: 330px;
-  max-width: 330px;
-  min-width: 330px;
+  max-height: 95%;
+  min-height: 95%;
+  max-width: 110%;
+  min-width: 110%;
   padding: 30px;
   box-shadow: 0 5px 10px rgba(100, 100, 100, 0.6);
   transition: all 0.3s ease-in-out ;
@@ -197,13 +222,32 @@ export const ServicesCard2 = styled.div`
     }
 
   }
-  @media screen and (max-width: 768px) {
-    height: 300px;
-    padding: 20px;
+  @media screen and (max-width: 1340px) {
+    max-height: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  min-width: 300px;
+    margin: auto;
+    margin-left: -7%;
   }
-  @media screen and (max-width: 460px) {
-    min-height: 300px;
-    padding: 10px;
+
+
+
+  @media screen and (max-width: 780px) {
+    max-height: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  min-width: 300px;
+    margin: auto;
+    margin-left: 100px;
+  }
+  @media screen and (max-width: 480px) {
+    max-height: 300px;
+  min-height: 300px;
+  max-width: 300px;
+  min-width: 300px;
+    margin: auto;
+    margin-left: 75px;
   }
 `;
 
@@ -239,12 +283,16 @@ export const ServicesH1 = styled.h1`
   font-weight: bold;
   margin-bottom: 50px;
   margin-top: 50px;
-  @media screen and (max-width: 1024px) {
-    font-size: 1.5rem;
+  @media screen and (max-width: 1340px) {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    margin-top: 50px;
   }
 
-  @media screen and (max-width: 768px) {
-    font-size: 1.5rem;
+  @media screen and (max-width: 780px) {
+    font-size: 2rem;
+    margin-bottom: -30px;
+    margin-top: 30px;
   }
   @media screen and (max-width: 480px) {
     font-size: 1.5rem;
@@ -253,28 +301,37 @@ export const ServicesH1 = styled.h1`
 
 
 export const ServicesWrappers = styled.div`
-  max-width: 750px;
+  max-width: 750%;
   margin: auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  grid-gap: 80px;
+  grid-gap: 6%;
   padding: 0 0px;
-  margin-left: 50px;
   margin-bottom: 50px;
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1340px) {
     grid-template-columns: 1fr;
-    padding-top: 90px;
-    max-width: 1750px;
-    margin: auto;
+    max-width: 50%;
+  
+    grid-gap: 6%;
     align-items: center;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 780px) {
     grid-template-columns: 1fr;
-    padding-top: 50px;
-    max-width: 1750px;
-    margin: auto;
+    padding-top: 10%;
+    max-width: 50%;
+    margin-left: 2%;
+    grid-gap: 6%;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding-top: 10%;
+    max-width: 50%;
+    margin-left: 2%;
+    grid-gap: 6%;
     align-items: center;
   }
 `;
@@ -296,19 +353,38 @@ export const ServicesCard = styled.div`
   justify-content: flex-start;
   align-items: center;
   border-radius: 50px;
-  max-height: 620px;
-  min-height: 620px;
+  max-height: 95%;
+  min-height: 95%;
   padding: 30px;
   box-shadow: 0 5px 10px rgba(255, 0, 0, 0.6);
   transition: all 0.3s ease-in-out ;
 
-  @media screen and (max-width: 768px) {
-    height: 300px;
-    padding: 20px;
+  @media screen and (max-width: 1340px) {
+    max-height: 600px;
+    min-height: 600px;
+    max-width: 600px;
+    min-width: 600px;
+    margin: auto;
+    margin-left: -7%;
   }
-  @media screen and (max-width: 460px) {
-    min-height: 300px;
-    padding: 10px;
+
+
+
+  @media screen and (max-width: 780px) {
+    max-height: 105%;
+    min-height: 105%;
+    max-width: 190%;
+    min-width: 190%;
+    margin: auto;
+    margin-left: 3%;
+  }
+  @media screen and (max-width: 480px) {
+    max-height: 105%;
+    min-height: 105%;
+    max-width: 190%;
+    min-width: 190%;
+    margin: auto;
+    margin-left: 3%;
   }
 `;
 
@@ -317,6 +393,20 @@ export const ServicesIcon = styled.img`
   width: 120px;
   margin-bottom: 10px;
   border-radius: 10px;
+
+  @media screen and (max-width: 1340px) {
+    height: 90px;
+    width: 100px;
+  }
+
+
+
+  @media screen and (max-width: 780px) {
+   
+  }
+  @media screen and (max-width: 480px) {
+   
+  }
 `;
 
 
@@ -324,6 +414,20 @@ export const ServicesH2 = styled.h2`
   font-size: 2rem;
   color: #EF3A47;
   font-weight: bold;
+
+  @media screen and (max-width: 1340px) {
+    font-size: 1.4rem;
+  }
+
+
+
+  @media screen and (max-width: 780px) {
+   
+  }
+  @media screen and (max-width: 480px) {
+   
+  }
+
 `;
 
 export const ServicesH3B = styled.h3`
@@ -344,4 +448,18 @@ export const ServicesP = styled.p`
   font-size: 0.8rem;
   align-items: left;
   letter-spacing: 0.5px;
+
+  @media screen and (max-width: 1340px) {
+    font-size: 0.8rem;
+  }
+
+
+
+  @media screen and (max-width: 780px) {
+   
+  }
+  @media screen and (max-width: 480px) {
+   
+  }
+
 `;

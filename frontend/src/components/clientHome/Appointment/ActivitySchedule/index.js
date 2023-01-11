@@ -782,7 +782,7 @@ const HeroImage = () => {
    
    hr {
     border-top: 5px solid red;
-    width: 500px;
+    width: 100%;
     
     }
     .cld_container table {
@@ -792,14 +792,39 @@ const HeroImage = () => {
     font-size: 16px;
     font-weight: bold;
 }
+
+    @media screen and (max-width: 480px) {
+      .cld_container td {
+        font-size: 0.8rem;
+        margin-top: 20px;
+    }
+    }
+
     .line {
       border-top: 1px solid red;
-      width: 500px;
+      width: 100%;
       
       }
       .cld_slotWidth {
           width: 40%;
           min-width: 34rem;
+
+      }
+
+      @media screen and (max-width: 780px) {
+        .cld_slotWidth {
+          width: 20%;
+          min-width: 27rem;
+
+      }
+    }
+      
+      @media screen and (max-width: 480px) {
+        .cld_slotWidth {
+          width: 20%;
+          min-width: 24rem;
+
+      }
       }
 
       .cld_noslotWidth {
@@ -851,6 +876,39 @@ const HeroImage = () => {
         box-shadow: 0px 0px 3px 0px #000000;
         text-align: left;
     }
+
+    @media screen and (max-width: 480px) {
+      .cld_availableSlots {
+        height: 18px;
+      width: 80%;
+        position: center;
+        top: 0;
+        left: 0;
+        font-size: 0.8rem;
+        border-radius: 0 0 16px 0;
+        color: #fff;
+        background: #EF3A47;
+        box-shadow: 0px 0px 3px 0px #000000;
+        text-align: left;
+    }
+    }
+
+    @media screen and (max-width: 780px) {
+      .cld_availableSlots {
+        height: 18px;
+      width: 80%;
+        position: center;
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+        border-radius: 0 0 16px 0;
+        color: #fff;
+        background: #EF3A47;
+        box-shadow: 0px 0px 3px 0px #000000;
+        text-align: left;
+    }
+    }
+
     
     .cld_totalSlots {
       height:21px;
@@ -863,6 +921,36 @@ const HeroImage = () => {
       box-shadow: 0px 0px 3px 0px #ff6500;
       background: #fbddb9;
       color: #000000;
+  }
+
+  @media screen and (max-width: 480px) {
+    .cld_totalSlots {
+      height: 18px;
+      width: 80%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 0.8rem;
+      border-radius: 16px 0 0 0;
+      box-shadow: 0px 0px 3px 0px #ff6500;
+      background: #fbddb9;
+      color: #000000;
+  }
+  }
+
+  @media screen and (max-width: 780px) {
+    .cld_totalSlots {
+      height: 18px;
+      width: 80%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 1rem;
+      border-radius: 16px 0 0 0;
+      box-shadow: 0px 0px 3px 0px #ff6500;
+      background: #fbddb9;
+      color: #000000;
+  }
   }
 
   .cld_slotInfoTotalClr {
@@ -908,6 +996,14 @@ const HeroImage = () => {
         color: #000000;
         font-size: 16px;
         font-weight: bold;
+    }
+
+    @media screen and (max-width: 480px) {
+      .cld_container th {
+        color: #000000;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
     }
         `}
       </style>

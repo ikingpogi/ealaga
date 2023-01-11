@@ -157,17 +157,27 @@ export const ServicesIcon = styled.img`
 
 export const ServicesIcon2 = styled.img`
 
-  height: 160px;
-  width: 180px;
+  height: 60%;
+  width: 92%;
   margin-bottom: 0px;
   margin-top: 5px;
+  @media screen and (max-width: 480px) {
+    height: 60%;
+    width: 95%;
+  }
 `;
 
 export const ServicesIcon3 = styled.img`
-  height: 90px;
-  width: 200px;
+  height: 30%;
+  width: 100%;
   margin-bottom: 0px;
   margin-top: 5px;
+  @media screen and (max-width: 480px) {
+    height: 23%;
+    width: 90%;
+  }
+ 
+
 `;
 
 
@@ -195,6 +205,16 @@ font-weight: bold;
 margin-bottom: 0px;
 margin-top: 2px;
 display: flex; 
+
+@media screen and (max-width: 480px) {
+  font-size: 0.95rem;
+}
+
+@media screen and (max-width: 392px) {
+  font-size: 0.9rem;
+}
+
+
 `;
 
 export const ServicesP = styled.p`
@@ -218,6 +238,10 @@ export const ServicesP1 = styled.p`
   margin-bottom: 0px;
   margin-top: 5px;
   text-align: center;
+
+  @media screen and (max-width: 480px) {
+    font-size: 0.6rem;
+  }
 `;
 
 export const ServicesP2 = styled.p`
@@ -226,6 +250,12 @@ export const ServicesP2 = styled.p`
   margin-bottom: 0px;
   margin-top: 5px;
   text-align: left;
+  @media screen and (max-width: 480px) {
+    font-size: 0.87rem;
+  }
+  @media screen and (max-width: 440px) {
+    font-size: 0.75rem;
+  }
 `;
 
 

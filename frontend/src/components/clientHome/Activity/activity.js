@@ -381,7 +381,7 @@ const HeroImage = () => {
                
           return  <><ServicesCardModal id="divToPrint" >
                 <Row >
-                <Col>
+                <Col xs={6}>
                 <ServicesP5>Service Type</ServicesP5>
                  {schedData.category == "Recreational Activity" ?  <ServicesH25>Recreational Activity</ServicesH25> :
                  schedData.category == "Multipurpose Hall" ?  <ServicesH25>Multi-purpose Hall</ServicesH25> :
@@ -406,9 +406,9 @@ const HeroImage = () => {
 
                 </Col>
 
-                <Col>
+                <Col xs={6}>
                 <ServicesP5>QR_ID</ServicesP5>
-                <ServicesP2>{schedData._id.substring(0, 22)}...</ServicesP2>
+                <ServicesP2>{schedData._id}</ServicesP2>
                 {!fetchSchedData ? <div style={{ width: "100%",height: "100",display: "flex",justifyContent: "center",
                 alignItems: "center"}}><Circles color="#EF3A47" alignSelf='center' height={80} width={80}/></div> :
                 fetchSchedDataQr?.map(schedDataQr => { 

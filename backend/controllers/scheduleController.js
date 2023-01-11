@@ -105,7 +105,7 @@ exports.activity = async (req, res) => {
 	
 	const filter = user.filter(user => moment(user.date_schedule).format('YYYY-MM-DD') >= nowss);
 
-	console.log(filter)
+	// console.log(filter)
 	// console.log(filter)
 	return res.status(200).json({
 		success: true,
@@ -318,7 +318,7 @@ exports.add = async (req, res) => {
 
 					var todate = new Date(nowss).toISOString() 
 
-					console.log(nowss);
+					// console.log(nowss);
 
 					const schedule = await Schedule.create({
 						user_id: user_id, 
@@ -382,7 +382,7 @@ exports.add = async (req, res) => {
 
 			var todate = new Date(nowss).toISOString() 
 
-			console.log(nowss);
+			// console.log(nowss);
 
 			const schedule = await Schedule.create({
 				user_id: user_id, 
@@ -445,7 +445,7 @@ exports.add = async (req, res) => {
 
 				var todate = new Date(nowss).toISOString() 
 
-				console.log(nowss);
+				// console.log(nowss);
 
 				const schedule = await Schedule.create({
 					user_id: user_id, 
@@ -508,7 +508,7 @@ exports.add = async (req, res) => {
 
 					var todate = new Date(nowss).toISOString() 
 
-					console.log(nowss);
+					// console.log(nowss);
 
 					const schedule = await Schedule.create({
 						user_id: user_id, 
@@ -571,7 +571,7 @@ exports.add = async (req, res) => {
 		
 					var todate = new Date(nowss).toISOString() 
 		
-					console.log(nowss);
+					// console.log(nowss);
 		
 					const schedule = await Schedule.create({
 						user_id: user_id, 
